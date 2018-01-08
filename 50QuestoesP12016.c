@@ -10,8 +10,9 @@ void q13();void q14();void q15();void q16();
 void q17();void q18();void q19();void q20();
 void q21();void q22();void q23();void q24();
 
-void strREV(char s[]);void strNOV(char s[]);void iguaisConsecutivos(char s[]);void diffConsecutivos(char s[]);
-void contaPal(char s[]);char *strCat(char *s1, char *s2);
+void strREV(char s[]); void strNOV(char s[]); void iguaisConsecutivos(char s[]); void diffConsecutivos(char s[]);
+void contaPal(char s[]); char *strCat(char *s1, char *s2); int bitsUm(unsigned int n);
+int trailingZ(unsigned int n); int qDig(unsigned int n); int strLength(char str[]); int strcmp1(char s1[], char s2[]); int contaVogais(char s[]);
 
 int main()
 {
