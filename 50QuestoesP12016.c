@@ -11,46 +11,52 @@ void q17();void q18();void q19();void q20();
 void q21();void q22();void q23();void q24();
 
 void strREV(char s[]); void strNOV(char s[]); void iguaisConsecutivos(char s[]); void diffConsecutivos(char s[]);
-void contaPal(char s[]); char *strCat(char *s1, char *s2); int bitsUm(unsigned int n);
-int trailingZ(unsigned int n); int qDig(unsigned int n); int strLength(char str[]); int strcmp1(char s1[], char s2[]); int contaVogais(char s[]);
+void contaPal(char s[]); char *strCat(char *s1, char *s2); int bitsUm(unsigned int n); int contaVogais(char s[]);
+int trailingZ(unsigned int n); int qDig(unsigned int n); int strLength(char str[]); int strcmp1(char s1[], char s2[]);
+void menu();
 
 int main()
 {
-	int a;
-	printf("PROBLEMA A RESOLVER:\nQuestão nº:");
-	scanf("%d",&a);
-	fflush(stdin);
-	switch (a){//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!TODO: COMPLETAR OS QUE ESTAO EM COMENTARIO
-		case 1: q1(); main();
-	    case 2: q2(); main();
-		case 3: q3(); main();
-		case 4: q4(); main();
-		case 5: q5(); main();
-		case 6: q6(); main();
-		case 7: q7(); main();
-		case 8: q8(); main();
-		case 9: q9(); main();
-		//case 10: q10(); main();
-		case 11: q11(); main();
-		//case 12: q12(); main();
-		case 13: q13(); main();
-		case 14: q14(); main();
-		//case 15: q15(); main();
-		//case 16: q16(); main();
-		case 17: q17(); main();
-		case 18: q18(); main();
-		//case 19: q19(); main();
-		//case 20: q20(); main();
-		//case 21: q21(); main();
-		case 22: q22(); main();
-		case 23: q23(); main();
-		//case 24: q24(); main();
-	    default:
-	    	printf("ERRO FATAL, DELETE SYSTEM32\n");
-	}
-	return 0;
+    menu();
+    return 0;
 }
 
+void menu(){
+    int a;
+    while(a!=0){
+    	printf("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\nPROBLEMA A RESOLVER (0=Exit):\nQuestão nº:");
+	    scanf("%d",&a);
+    	fflush(stdin);
+	    switch (a){//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!TODO: COMPLETAR OS QUE ESTAO EM COMENTARIO
+	        case 1: q1(); break;
+            case 2: q2(); break;
+		    case 3: q3(); break;
+		    case 4: q4(); break;
+		    case 5: q5(); break;
+		    case 6: q6(); break;
+		    case 7: q7(); break;
+		    case 8: q8(); break;
+		    case 9: q9(); break;
+		    //case 10: q10(); break;
+		    case 11: q11(); break;
+		    //case 12: q12(); break;
+		    case 13: q13(); break;
+		    case 14: q14(); break;
+		    //case 15: q15(); break;
+		    //case 16: q16(); break;
+		    case 17: q17(); break;
+		    case 18: q18(); break;
+		    //case 19: q19(); break;
+		    //case 20: q20(); break;
+		    //case 21: q21(); break;
+		    case 22: q22(); break;
+		    case 23: q23(); break;
+		    //case 24: q24(); break;
+	        default: printf("NOT VALID\n"); break;
+	    }
+    }
+}
+ 
 void q1()
 {
 	printf("Insere numeros que queres somar (0 para terminar)\n");
@@ -62,7 +68,7 @@ void q1()
     }
     printf("Soma: %d\n", n);
 }
-
+ 
 void q2()
 {
 	printf("Insere numeros (0 para mostrar o maior deles)\n");
