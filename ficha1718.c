@@ -277,16 +277,3 @@ void thor(int n){  //THOR GOD OF THUNDER AND HORIZONTAL TRIANGLES
         putchar('\n');
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
