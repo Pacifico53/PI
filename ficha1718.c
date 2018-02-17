@@ -4,7 +4,7 @@
 
 void parte1(); void parte2();
 void f1(); void f2(); void f3(); void f4(); void f5(); void fa(); void fb(); void fc(); void fd(); void fe(); 
-void ff(); void f2_2(); void f2_3(); void f2_4(); 
+void ff(int n); void f2_2(int n); void f2_3(int n); void f2_4(int n); void tvert(int n); void thor(int n); 
 
 int main()
 {
@@ -63,9 +63,11 @@ void parte2(){
                       break;
             case 'f': ff(rand()%40);
                       break;
-            case '2': f2_2(rand()%20);
+            case '2': f2_2(rand()%15);
                       break;
-            case '3': f2_3(rand()%20);
+            case '3': f2_3(rand()%15);
+                      break;
+            case '4': f2_4(rand()%15);
                       break;
             default : printf("De 'a' a 'f' ou 2 a 4 amigo ;)\n");
         }
@@ -229,5 +231,62 @@ void f2_3(int n){
         putchar('\n');
     }
 }
+
+void f2_4(int n){
+    int a=0;
+    printf("Desenhar triangulos:\n1: Triangulo vertical; 2: Triangulo horizontal.\nOpçao:");
+    while (a<1 || a>2){
+        scanf("%d",&a);
+        if (a==1) {
+            tvert(n);
+        } else if (a==2) {thor(n);}
+    }
+}
+
+void tvert(int n){
+    int i, j;
+    printf("OUTPUT para n = %d (random):\n", n);
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j <= i; j++) {
+            putchar('#');
+        }
+        putchar('\n');
+    }
+    for (int i = n-1; i >= 0; i--) {
+        for (int j = 0; j < i; j++) {
+            putchar('#');
+        }
+        putchar('\n');
+    }
+}
+
+//TODO!!! Deve haver uma maneira melhor de fazer esta
+void thor(int n){  //THOR GOD OF THUNDER AND HORIZONTAL TRIANGLES
+    int i, j, jj, jjj;
+    printf("OUTPUT para n = %d (random):\n", n);
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n-i; j++) {
+            putchar(' ');
+        }
+        for (int jj = 0; jj <= i; jj++) {
+            putchar('#');
+        }
+        for (int jjj = jj; jjj < jj+i; jjj++) {
+            putchar('#');
+        }
+        putchar('\n');
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
