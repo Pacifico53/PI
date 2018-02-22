@@ -6,7 +6,7 @@ void parte1(); void parte2();
 void f1(); float mult(int n, float m); float mult2(int n, float m); int mdc(int a, int b); int fibrec(int n); int fib(int n);
 void f2();
 void f3();
-void f2_1(int a, int b); void f2_2(int a, int b);
+void f2_1(int a, int b); void f2_2(int a, int b); void f2_4(); void f2_6(); void f2_7();
 
 int main()
 {
@@ -18,15 +18,6 @@ int main()
             parte1();
         } else parte2();
     }
-    /*
-    f1();
-    printf("%f\n", mult(10, 4));
-    printf("%f\n", mult2(5, 6));
-    printf("%d\n", mdc(12, 24));
-    printf("%d\n", fibrec(10));
-    printf("%d\n", fib(10));
-    f2();
-    */
     return 0;
 }
 
@@ -50,7 +41,7 @@ void parte1(){
 void parte2(){
     int q=0;
     srand(time(NULL));
-    while (q<1 || q>6) {
+    while (q<1 || q>7) {
         printf("ESCOLHE QUESTAO:\n");
         scanf("%d", &q);
         switch (q) {
@@ -58,13 +49,15 @@ void parte2(){
                     break;
             case 2: f2_2(rand()%15, rand()%15);
                     break;
-            case 3: f3();
+            case 3: printf("1 iteraçao e 999 iteraçoes\n");
                     break;
-            case 4: f1();
+            case 4: f2_4(rand()%50, rand()%50);
                     break;
-            case 5: f1();
+            case 5: printf("999 iteraçoes e 1000 iteraçoes\n");
                     break;
-            case 6: f1();
+            case 6: f2_6(rand()%50, rand()%50);
+                    break;
+            case 7: f2_7(rand()%20);
                     break;
             default: printf("De 1 a 5 amigo ;)\n");
         }
@@ -81,7 +74,7 @@ void f1(){
     j = i + *b;
     b = a;
     j = j + *b;
-    printf("%d\n", j);
+    printf("OUTPUT: %d\n", j);
 }
 //OUTPUT: 13
 
@@ -97,7 +90,7 @@ void f2(){
     int x;
     x = 3;
     initCOOL(&x);
-    printf("%d\n", x);
+    printf("OUTPUT: %d\n", x);
 }
 
 void swap(int *a, int *b){
@@ -108,7 +101,7 @@ void swap(int *a, int *b){
 void f3(){
     int x=3, y=5;
     swap(&x, &y);
-    printf("%d %d\n", x, y);
+    printf("OUTPUT: %d %d\n", x, y);
 }
 
 
@@ -153,6 +146,24 @@ int mdc(int a, int b){
     return a;
 }
 
+// Isto nao resulta, mas vou deixar assim pq é como eles querem na ficha
+int mdc2(int a, int b){
+    while (a!=b) {
+        if (a>b) {
+            a = a%b;
+        } else b = b%a;
+    }
+    return a;
+}
+
+void f2_4(int a, int b){
+    printf("OUTPUT PARA A = %d E B = %d : %d\n", a, b, mdc(a, b));
+}
+
+void f2_6(int a, int b){
+    printf("OUTPUT PARA A = %d E B = %d : %d\n", a, b, mdc(a, b)); // a mdc2 da um loop infinito, por isso uso a mdc aqui
+}
+
 int fibrec(int n){
     int r;
     if (n<2) {
@@ -174,4 +185,8 @@ int fib(int n){
         }
     }
     return r;
+}
+
+void f2_7(int n){
+    printf("OUTPUT PARA n = %d\na) \"%d\"\nb) \"%d\"\n", n, fibrec(n), fib(n));
 }
