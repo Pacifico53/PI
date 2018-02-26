@@ -26,7 +26,7 @@ int main()
     }
     printf("-----------------------\n");
     int qq[6];
-    pascal(qq, 5);
+    pascal(qq, 6);
     return 0;
 }
 
@@ -92,22 +92,15 @@ void quadrados(int q[], int N){
 }
 
 void pascal(int v[], int N){
-    int i, j;
-    int a = 1;
-    int b = 1;
-    v[0] = 1;
-    v[1] = 1;
-    for (int i = 2; i < N; i++) {
-        for (int j = 0; j < i; j++) {
-              v[i-(j+1)] = a + b;
-              a = b;
-              b = v[i-(j+1)];
+    int i, j, t=1;
+    v[0]=1; v[1]=1;
+    for (i = 2; i < N; i++) {
+        for (j = 1; j < i; j++) {
+            v[j] = v[j-1] + t;
+            t = v[j];
         }
     }
-    for (i = 0; i < j; i++) {
+    for (i = 0; i < N; i++) {
         printf("%d\n", v[i]);
-    }/*
-    if (N==0) v = {1};
-    if (N==1) v = {1,1};
-    */
+    }
 }
