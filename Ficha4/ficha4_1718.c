@@ -71,3 +71,18 @@ int procura(char *p, char *ps[], int N){
     }
     return i;
 }
+//TODO
+/*
+int procuraBin(char *p, char *ps[], int N){
+    int i = 0, j = N-1;
+    int k;
+    int c=1;
+    while(i!=j && c!=0){
+        k = (i+j)/2;
+        c = comparaOrdenado(p, ps[k]);
+        if(c < 0) j = k - 1;
+        else if(c > 0) i = k + 1;
+    }
+    return k;
+}
+*/
