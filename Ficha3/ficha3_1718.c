@@ -3,7 +3,7 @@
 
 void f1_a(); void f1_b(); void swapM(int *x, int *y); void swap(); int soma(int v[], int N);
 int maximum(int v[], int N, int *m); void quadrados(int q[], int N);void pascal(int v[], int N);
-void menu(); void f2();
+void menu(); void f2(); void f3(); void f4(); void f5(); void f6();
 
 int main()
 {
@@ -46,6 +46,14 @@ void menu(){
                     f1_b();
                     break;
             case 2: f2();
+                    break;
+            case 3: f3();
+                    break;
+            case 4: f4();
+                    break;
+            case 5: f5();
+                    break;
+            case 6: f6();
                     break;
             default: printf("De 1 a 7 amigo ;)\n");
         }
@@ -91,10 +99,38 @@ void swapM(int *x, int *y){
     *y = a;
 }
 
+void f3(){
+    int i, a, b;
+    int array[] = {1,2,3,4,5,6,7,8,9,10};
+    printf("Tens este array de numeros: [1,2,3,4,5,6,7,8,9,10]\nEscolhe dois indices para fazer swap:\n");
+    printf("Indice 1: ");
+    scanf("%d", &a);
+    printf("Indice 2: ");
+    scanf("%d", &b);
+    swap(array, a, b);
+    printf("Apos swap, valores do array:\n[");
+    for (i = 0; i < 9; i++) {
+        printf("%d,", array[i]);
+    }
+    printf("%d]\n", array[9]);
+}
+
 void swap(int v[], int i, int j){
     int a = *(v+i);
     v[i]=v[j];
     v[j]=a;
+}
+
+void f4(){
+    int n, i;
+    printf("Indica o tamanho de um array de ints\n");
+    scanf("%d", &n);
+    int a[n];
+    printf("Insere os elementos do array:\n");
+    for (i = 0; i < n; i++) {
+        scanf("%d", &a[i]);
+    }
+    printf("Soma dos valores: %d\n", soma(a, n));
 }
 
 int soma(int v[], int N){
@@ -103,6 +139,19 @@ int soma(int v[], int N){
         r+=v[i];
     }
     return r;
+}
+
+void f5(){
+    int n, i, m, max;
+    printf("Indica o tamanho de um array de ints\n");
+    scanf("%d", &n);
+    int a[n];
+    printf("Insere os elementos do array:\n");
+    for (i = 0; i < n; i++) {
+        scanf("%d", &a[i]);
+    }
+    m = maximum(a, n, &max);
+    printf("A funcao maximum retornou \"%d\", maximo dos elementos: %d\n",m, max);
 }
 
 int maximum(int v[], int N, int *m){
@@ -115,6 +164,19 @@ int maximum(int v[], int N, int *m){
     return r;
 }
 
+void f6(){
+    int n, i;
+    printf("Indica um tamanho de array para preencher com quadrados de inteiros naturais:\n");
+    scanf("%d", &n);
+    int array[n];
+    quadrados(array, n);
+    printf("Array resultante: [");
+    for (i = 0; i < n-1; i++) {
+        printf("%d,", array[i]);
+    }
+    printf("%d]\n", array[n-1]);
+}
+
 void quadrados(int q[], int N){
     int a = 1;
     for (int i = 0; i < N; i++) {
@@ -123,6 +185,7 @@ void quadrados(int q[], int N){
     }
 }
 
+//TODO
 void pascal(int v[], int N){
     int i, j, t=1;
     v[0]=1; v[1]=1;
