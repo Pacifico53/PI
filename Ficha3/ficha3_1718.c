@@ -3,9 +3,11 @@
 
 void f1_a(); void f1_b(); void swapM(int *x, int *y); void swap(); int soma(int v[], int N);
 int maximum(int v[], int N, int *m); void quadrados(int q[], int N);void pascal(int v[], int N);
+void menu(); void f2();
 
 int main()
 {
+    /*
     int i;
     f1_a();
     f1_b();
@@ -27,7 +29,27 @@ int main()
     printf("-----------------------\n");
     int qq[6];
     pascal(qq, 6);
+    */
+    menu();
     return 0;
+}
+
+void menu(){
+    int a = 0;
+    printf("Escolhe questao (1 a 7):\n");
+    while (a < 1 || a > 7) {
+        scanf("%d", &a);
+        switch (a) {
+            case 1: printf("OUTPUTS:\na)\n");
+                    f1_a();
+                    printf("b)\n");
+                    f1_b();
+                    break;
+            case 2: f2();
+                    break;
+            default: printf("De 1 a 7 amigo ;)\n");
+        }
+    }
 }
 
 void f1_a(){
@@ -50,6 +72,16 @@ void f1_b(){
     b = a;
     j = j + *b;
     printf("%d\n", j);
+}
+
+void f2(){
+    int a, b;
+    printf("Escolhe dois valores para aplicar swap:\nValor A: ");
+    scanf("%d", &a);
+    printf("Valor B: ");
+    scanf("%d", &b);
+    swapM(&a, &b);
+    printf("Apos swap, valor A = %d, valor B = %d\n", a, b);
 }
 
 void swapM(int *x, int *y){
