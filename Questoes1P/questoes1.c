@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
 
-void menu(); void q1();void q2();void q3();void q4();
+void menu(); void q1();void q2();void q3();void q4();void q5();void q6();void q7();
 
 int main()
 {
@@ -23,6 +24,12 @@ void menu(){
             case 3: q3();
                     break;
             case 4: q4();
+                    break;
+            case 5: q5();
+                    break;
+            case 6: q6();
+                    break;
+            case 7: q7();
                     break;
             default: if (q<1 || q>50) {printf("Entre 1 e 50 amigo ;)\n");}
                          else {printf("INVALID (Ainda nao fiz essa)\n");}
@@ -84,4 +91,61 @@ void q4(){
     printf("Insere um numero para que seja calculado o numero de 1's do numero em binario\n=> ");
     scanf("%d", &n);
     printf("Resultado: %d.\n", bitsUm(n));
+}
+
+int trailingZ(unsigned int n){
+    int r = 0;
+    while(n != 0) {
+        if (n%2 == 0) {
+            r++;
+        }
+        n /= 2;
+    }
+    return r;
+}
+
+void q5(){
+    int n;
+    printf("Insere um numero para que seja calculado o numero de 0's do numero em binario\n=> ");
+    scanf("%d", &n);
+    printf("Resultado: %d.\n", trailingZ(n));
+}
+
+int qDig(unsigned int n){
+    int r = 0;
+    while(n != 0){
+        r++;
+        n /= 10;
+    }
+    return r;
+}
+
+void q6(){
+    int n;
+    printf("Insere um numero para que seja calculado o numero de digitos\n=> ");
+    scanf("%d", &n);
+    printf("Resultado: %d.\n", qDig(n));
+}
+
+char *myStrCat(char s1[], char s2[]){
+    int i = 0;
+    while (s1[i] != '\0') {
+        i++;
+    }
+    int l = i;
+    for (int i = 0; s2[i] != '\0'; i++) {
+        s1[l+i] = s2[i];
+    }
+    s1[l+i-1] = '\0';
+    return s1;
+}
+
+void q7(){
+    char *s1;
+    char *s2;
+    printf("Insere duas strings para concatenar:\nString 1 => ");
+    fgets(s1, 256, 0);
+    printf("String 2 => ");
+    fgets(s2, 256, 0);
+    printf("String resultante: \"%s\".\n", myStrCat(s1, s2));
 }
