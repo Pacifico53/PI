@@ -3,7 +3,7 @@
 #include <time.h>
 #include <string.h>
 
-void menu(); void q1();void q2();void q3();void q4();void q5();void q6();void q7();
+void menu(); void q1();void q2();void q3();void q4();void q5();void q6();void q7();void q8();
 
 int main()
 {
@@ -30,6 +30,8 @@ void menu(){
             case 6: q6();
                     break;
             case 7: q7();
+                    break;
+            case 8: q8();
                     break;
             default: if (q<1 || q>50) {printf("Entre 1 e 50 amigo ;)\n");}
                          else {printf("INVALID (Ainda nao fiz essa)\n");}
@@ -127,16 +129,18 @@ void q6(){
     printf("Resultado: %d.\n", qDig(n));
 }
 
+//------> TODO: FIX THIS SHIT <--------
+
 char *myStrCat(char s1[], char s2[]){
-    int i = 0;
+    int i = 0, j = 0;
     while (s1[i] != '\0') {
         i++;
     }
-    int l = i;
-    for (int i = 0; s2[i] != '\0'; i++) {
-        s1[l+i] = s2[i];
+    for (int j = 0; s2[i] != '\0'; j++) {
+        s1[i] = s2[j];
+        i++;
     }
-    s1[l+i-1] = '\0';
+    s1[i] = '\0';
     return s1;
 }
 
@@ -144,8 +148,27 @@ void q7(){
     char *s1;
     char *s2;
     printf("Insere duas strings para concatenar:\nString 1 => ");
-    fgets(s1, 256, 0);
+    scanf("%s", s1);
     printf("String 2 => ");
-    fgets(s2, 256, 0);
+    scanf("%s", s2);
     printf("String resultante: \"%s\".\n", myStrCat(s1, s2));
+}
+
+//------> TODO: FIX THIS SHIT <--------
+
+char *mystrcpy(char *dest, char source[]){
+    int i, j;
+    for (int i = 0; source[i] != '\n' ; i++) {
+        dest[i] = source[i];
+    }
+    dest[i] = '\0';
+    return dest;
+}
+
+void q8(){
+    char *source;
+    printf("Insere uma string, vai ser copiada para outra string:\n");
+    scanf("%s", &source);
+    char dest[strlen(source)];
+    printf("String copiada:  %s\n", mystrcpy(dest, source));
 }
